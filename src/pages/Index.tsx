@@ -1,9 +1,11 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
+import { boilers } from '@/data/boilers';
 
 const Index = () => {
   const [formData, setFormData] = useState({
@@ -19,32 +21,7 @@ const Index = () => {
     // Handle form submission
   };
 
-  const boilers = [
-    {
-      id: 1,
-      name: 'Bigger Energy Pro',
-      description: 'Высокоэффективный бойлер для больших помещений',
-      price: '45 000 ₽',
-      features: ['Объем 200л', 'Мощность 3кВт', 'Энергоэффективность A+'],
-      image: '/img/ca88c2b6-d55f-4faf-9920-648d6a02d049.jpg'
-    },
-    {
-      id: 2,
-      name: 'Bigger Compact',
-      description: 'Компактное решение для квартир',
-      price: '28 000 ₽',
-      features: ['Объем 100л', 'Мощность 2кВт', 'Компактный дизайн'],
-      image: '/img/c5b96907-c688-4d8b-9b81-31849c4d0d13.jpg'
-    },
-    {
-      id: 3,
-      name: 'Bigger Smart',
-      description: 'Умный бойлер с управлением через приложение',
-      price: '52 000 ₽',
-      features: ['Объем 150л', 'Wi-Fi управление', 'Экономичный режим'],
-      image: '/img/20437c07-394f-4029-b0c5-b4c14b96717c.jpg'
-    }
-  ];
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-white to-gray-50">
@@ -52,11 +29,18 @@ const Index = () => {
       <header className="bg-white shadow-sm border-b border-gray-100">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                <Icon name="Zap" className="text-white" size={24} />
+            <div className="flex items-center space-x-3">
+              <img 
+                src="/img/04ccc47e-80f6-4915-9c51-95101b87503e.jpg" 
+                alt="Bigger Logo" 
+                className="w-12 h-12 object-contain"
+              />
+              <div>
+                <h1 className="text-2xl font-bold bg-gradient-to-r from-orange-500 to-blue-600 bg-clip-text text-transparent">
+                  Bigger
+                </h1>
+                <p className="text-sm text-gray-600">Энергетические решения</p>
               </div>
-              <span className="text-2xl font-bold text-bigger-blue">BIGGER</span>
             </div>
             <nav className="hidden md:flex space-x-8">
               <a href="#home" className="text-gray-700 hover:text-primary transition-colors">Главная</a>
@@ -74,7 +58,7 @@ const Index = () => {
             <div className="space-y-6">
               <h1 className="text-5xl font-bold leading-tight">
                 Бойлеры нового поколения
-                <span className="text-primary block">BIGGER</span>
+                <span className="text-primary block">Bigger</span>
               </h1>
               <p className="text-xl text-blue-100">
                 Надежность, энергоэффективность и инновационные технологии в каждом продукте
@@ -122,7 +106,7 @@ const Index = () => {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-bigger-blue mb-4">Наши бойлеры</h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Выберите идеальное решение для вашего дома из линейки высококачественных бойлеров BIGGER
+              Выберите идеальное решение для вашего дома из линейки высококачественных бойлеров Bigger
             </p>
           </div>
 
@@ -155,9 +139,11 @@ const Index = () => {
                   </div>
                   <div className="flex items-center justify-between pt-4 border-t">
                     <div className="text-2xl font-bold text-primary">{boiler.price}</div>
-                    <Button className="bg-primary hover:bg-primary/90 group-hover:scale-105 transition-transform">
-                      Подробнее
-                    </Button>
+                    <Link to={`/boiler/${boiler.id}`}>
+                      <Button className="bg-primary hover:bg-primary/90 group-hover:scale-105 transition-transform">
+                        Подробнее
+                      </Button>
+                    </Link>
                   </div>
                 </CardContent>
               </Card>
@@ -267,11 +253,13 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-8">
             <div>
-              <div className="flex items-center space-x-2 mb-4">
-                <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                  <Icon name="Zap" className="text-white" size={20} />
-                </div>
-                <span className="text-xl font-bold">BIGGER</span>
+              <div className="flex items-center space-x-3 mb-4">
+                <img 
+                  src="/img/04ccc47e-80f6-4915-9c51-95101b87503e.jpg" 
+                  alt="Bigger Logo" 
+                  className="w-10 h-10 object-contain"
+                />
+                <span className="text-xl font-bold">Bigger</span>
               </div>
               <p className="text-blue-100">
                 Инновационные бойлеры для современного дома. Качество, надежность и эффективность.
@@ -296,7 +284,7 @@ const Index = () => {
             </div>
           </div>
           <div className="border-t border-blue-700 mt-8 pt-8 text-center text-blue-100">
-            <p>&copy; 2024 BIGGER. Все права защищены.</p>
+            <p>&copy; 2024 Bigger. Все права защищены.</p>
           </div>
         </div>
       </footer>
