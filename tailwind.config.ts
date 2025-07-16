@@ -61,6 +61,13 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// Bigger brand colors
+				bigger: {
+					orange: '#FF6B35',
+					blue: '#2C3E50',
+					navy: '#34495E',
+					gray: '#FFFFFF'
 				}
 			},
 			borderRadius: {
